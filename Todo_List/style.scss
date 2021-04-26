@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-image: linear-gradient(120deg, #f6d365, #fda085);
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  height: 100vh;
+}
+header {
+  font-size: 4rem;
+  margin: 5rem 0;
+}
+header,
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+form > *:not(.select) {
+  padding: 1rem 0.5rem;
+  border: none;
+  background-color: #fff;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
+form button {
+  padding: 1rem;
+  color: #ff6f47;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  transform: translateX(-1.6rem);
+}
+form button:hover {
+  color: #fff;
+  background-color: #ff6f47;
+}
+form > *:focus {
+  outline: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  &::after {
+    content: '\25BC';
+    position: absolute;
+    background-color: #ff6f47;
+    top: 0;
+    right: -1rem;
+    pointer-events: none;
+    padding: 1rem;
+    font-size: 2rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+}
+
+select {
+  color: #ff6f47;
+  width: 20rem;
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+  font-size: 2rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  &:focus {
+    outline: none;
+  }
+}
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-list {
+    list-style: none;
+    min-width: 20%;
+  }
+  &-item {
+    flex: 1;
+    padding: 0.5rem;
+    font-weight: 700;
+  }
+  .btn {
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    &-trash {
+      background: #ff6f47;
+      overflow: hidden;
+    }
+    &-complete {
+      background: rgb(11, 212, 162);
+    }
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fail {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}

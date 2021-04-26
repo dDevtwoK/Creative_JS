@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: linear-gradient(120deg, #f6d365, #fda085);
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  height: 100vh;
+}
+
+header {
+  font-size: 4rem;
+  margin: 5rem 0;
+}
+
+header,
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 3rem;
+}
+
+form > *:not(.select) {
+  padding: 1rem 0.5rem;
+  border: none;
+  background-color: #fff;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
+
+form button {
+  padding: 1rem;
+  color: #ff6f47;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  -webkit-transform: translateX(-1.6rem);
+          transform: translateX(-1.6rem);
+}
+
+form button:hover {
+  color: #fff;
+  background-color: #ff6f47;
+}
+
+form > *:focus {
+  outline: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+}
+
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  background-color: #ff6f47;
+  top: 0;
+  right: -1rem;
+  pointer-events: none;
+  padding: 1rem;
+  font-size: 2rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+select {
+  color: #ff6f47;
+  width: 20rem;
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+  font-size: 2rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+select:focus {
+  outline: none;
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.todo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-list {
+  list-style: none;
+  min-width: 20%;
+}
+
+.todo-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0.5rem;
+  font-weight: 700;
+}
+
+.todo .btn {
+  padding: 1rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.todo .btn-trash {
+  background: #ff6f47;
+  overflow: hidden;
+}
+
+.todo .btn-complete {
+  background: #0bd4a2;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fail {
+  -webkit-transform: translateY(8rem) rotateZ(20deg);
+          transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+/*# sourceMappingURL=style.css.map */
