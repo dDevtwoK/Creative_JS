@@ -5,6 +5,7 @@ const todoContainer = document.querySelector('.todo-container');
 const filterOption = document.querySelector('.filter-todo');
 
 //Functions
+
 const addTodo = e => {
   e.preventDefault();
   const html = `
@@ -14,6 +15,7 @@ const addTodo = e => {
             <button class="btn btn-trash"><i class="fas fa-trash"></i></button>
         </div>
     `;
+  saveLocalTodos(todoInput.value);
   todoList.insertAdjacentHTML('afterbegin', html);
 };
 
@@ -24,6 +26,7 @@ const deleteCheck = e => {
     item.classList.contains('btn-trash')
   ) {
     const todo = item.closest('.todo');
+    removeLocalTodos(todo);
     todo.classList.add('fail');
     todo.addEventListener('transitionend', () => {
       todo.remove();
@@ -64,8 +67,48 @@ const filterTodo = e => {
     }
   });
 };
+const saveLocalTodos = inputValue => {
+  let inputValues;
+  if (localStorage.getItem('inputValues') === null) {
+    inputValues = [];
+  } else {
+    inputValues = JSON.parse(localStorage.getItem('inputValues'));
+  }
+  console.log(inputValues);
+
+  inputValues.push(inputValue);
+
+  localStorage.setItem('inputValues', JSON.stringify(inputValues));
+};
+
+const renderUi = () => {
+  if (localStorage.getItem('inputValues') === null) {
+    inputValues = [];
+  } else {
+    inputValues = JSON.parse(localStorage.getItem('inputValues'));
+  }
+
+  inputValues.forEach(inputValue => {
+    const html = `
+        <div class="todo">
+            <li class="todo-item">${inputValue}</li>
+            <button class="btn btn-complete"><i class="fas fa-check"></i></button>
+            <button class="btn btn-trash"><i class="fas fa-trash"></i></button>
+        </div>
+    `;
+    todoList.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+const removeLocalTodos = inputValue => {
+  let inputValues = JSON.parse(localStorage.getItem('inputValues'));
+  console.log(inputValue.children[0].innerHTML);
+  inputValues.splice(inputValues.indexOf(inputValue), 1);
+  localStorage.setItem('inputValues', JSON.stringify(inputValues));
+};
 
 // Event Listeners
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
+document.addEventListener('DOMContentLoaded', renderUi);
